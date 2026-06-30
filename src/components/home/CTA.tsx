@@ -26,7 +26,7 @@ export default function CTA() {
 
           </span>
 
-          <h2 className="mt-6 text-white text-3xl lg:text-5xl font-black leading-tight">
+          <h2 className="mt-6 text-white text-2xl lg:text-4xl font-black leading-tight">
 
             Helping Nigeria
 
@@ -85,7 +85,7 @@ export default function CTA() {
         >
 
           <div>
-            <h3 className="text-yellow-400 text-4xl font-black">
+            <h3 className="text-yellow-400 text-2xl font-black">
               36+
             </h3>
 
@@ -95,7 +95,7 @@ export default function CTA() {
           </div>
 
           <div>
-            <h3 className="text-yellow-400 text-4xl font-black">
+            <h3 className="text-yellow-400 text-2xl font-black">
               15M+
             </h3>
 
@@ -105,7 +105,7 @@ export default function CTA() {
           </div>
 
           <div>
-            <h3 className="text-yellow-400 text-4xl font-black">
+            <h3 className="text-yellow-400 text-2xl font-black">
               AI
             </h3>
 
@@ -115,7 +115,7 @@ export default function CTA() {
           </div>
 
           <div>
-            <h3 className="text-yellow-400 text-4xl font-black">
+            <h3 className="text-yellow-400 text-2xl font-black">
               24/7
             </h3>
 

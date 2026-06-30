@@ -16,7 +16,7 @@ const stats = [
               key={label}
               className="py-8 border-r border-white/10 last:border-none text-center"
             >
-              <h3 className="text-5xl font-bold text-yellow-500">
+              <h3 className="text-3xl font-bold text-yellow-500">
                 {value}
               </h3>
   
