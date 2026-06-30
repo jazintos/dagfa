@@ -83,7 +83,7 @@ export default function Navbar() {
               <img
                 src="/assets/dagfa-logo.png"
                 alt="DAGFA"
-                className="h-17 w-16 rounded-full object-contain"
+                className="h-16 w-17 rounded-full object-contain"
               />
 
               <div className="hidden md:block leading-tight">
@@ -94,12 +94,12 @@ export default function Navbar() {
 
                 </h2>
 
-                <p className="text-yellow-400 text-xs uppercase tracking-[2px]">
+                <p className="text-yellow-400 font-extrabold text-xs uppercase tracking-[2px]">
 
                   Data Analytics Group
 
                 </p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 font-extrabold text-sm uppercase tracking-[2px]">
 
                 for Asiwaju
 
