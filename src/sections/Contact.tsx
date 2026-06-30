@@ -154,7 +154,7 @@ export default function Contact() {
             <div className="mt-8 space-y-4">
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-gold shrink-0" />
-                <span className="font-inter text-white">danalyticsgroup@gmail.com</span>
+                <span className="font-inter text-white">info@dagfa.org</span>
               </div>
               <div className="flex items-center gap-4">
                 <a href="https://twitter.com/_dagfa" target="_blank" rel="noopener noreferrer"
