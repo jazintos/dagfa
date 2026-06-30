@@ -1,155 +1,284 @@
-import { useState, useEffect, useCallback } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
-const navLinks = [
-  { label: 'HOME', href: '#home' },
-  { label: 'ABOUT', href: '#about' },
-  { label: 'LEADERSHIP', href: '#leadership' },
-  { label: 'WHY DAGFA', href: '#why-dagfa' },
-  { label: 'ANALYTICS', href: '#analytics' },
-  { label: 'INITIATIVES', href: '#initiatives' },
-  { label: 'INSIGHTS', href: '#insights' },
-  { label: 'CONTACT', href: '#contact' },
+const navItems = [
+  {
+    label: "Home",
+    path: "/",
+  },
+  {
+    label: "About",
+    path: "/about",
+  },
+  {
+    label: "Leadership",
+    path: "/leadership",
+  },
+  {
+    label: "Initiatives",
+    path: "/initiatives",
+  },
+  {
+    label: "Analytics",
+    path: "/analytics",
+  },
+  {
+    label: "Insights",
+    path: "/insights",
+  },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [isDark, setIsDark] = useState(true);
+
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
-
-      const sections = navLinks.map(link => link.href.slice(1));
-      let current = 'home';
-      let isOnDark = true;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom > 120) {
-            current = section;
-            const bg = el.getAttribute('data-bg');
-            isOnDark = bg === 'dark';
-            break;
-          }
-        }
-      }
-
-      setActiveSection(current);
-      setIsDark(isOnDark);
+      setScrolled(window.scrollY > 40);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = useCallback((href: string) => {
-    const id = href.slice(1);
-    const el = document.getElementById(id);
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 64;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+  useEffect(() => {
     setMobileOpen(false);
-  }, []);
-
-  const textColor = scrolled
-    ? 'text-white'
-    : isDark
-      ? 'text-white'
-      : 'text-charcoal';
+  }, [location]);
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-[100] h-16 transition-all duration-400 ${
-          scrolled
-            ? 'bg-charcoal/90 backdrop-blur-xl'
-            : 'bg-transparent'
-        }`}
-        style={{ transitionTimingFunction: 'ease' }}
-      >
-        <div className="max-w-[1280px] mx-auto h-full flex items-center justify-between px-6 lg:px-12">
-          {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => { e.preventDefault(); scrollTo('#home'); }}
-            className="flex items-center gap-3 shrink-0"
-          >
-            <img
-              src="/assets/dagfa-logo.jpg"
-              alt="DAGFA"
-              className="h-8 w-8 rounded-full object-cover"
-            />
-            <span className={`font-inter font-bold text-sm tracking-[0.08em] ${textColor} hidden sm:block`}>
-              DAGFA
-            </span>
-          </a>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.slice(1);
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-                  className={`relative px-3 py-2 font-inter font-medium text-[13px] tracking-[0.08em] transition-colors duration-300 ${
-                    isActive
-                      ? 'text-gold'
-                      : `${textColor} hover:text-gold`
-                  }`}
+      {/* ============================= */}
+      {/* NAVBAR */}
+      {/* ============================= */}
+
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          location.pathname !== "/"
+            ? "bg-[#090909]/95 backdrop-blur-xl shadow-xl border-b border-yellow-500/10"
+            : scrolled
+              ? "bg-[#090909]/95 backdrop-blur-xl shadow-xl border-b border-yellow-500/10"
+              : "bg-transparent"
+  }`}
+>
+        <div className="max-w-7xl mx-auto">
+
+          <div className="flex items-center justify-between h-24 px-8 lg:px-12">
+
+            {/* ========================= */}
+            {/* LOGO */}
+            {/* ========================= */}
+
+            <NavLink
+              to="/"
+              className="flex items-center gap-3"
+            >
+              <img
+                src="/assets/dagfa-logo.png"
+                alt="DAGFA"
+                className="h-17 w-16 rounded-full object-contain"
+              />
+
+              <div className="hidden md:block leading-tight">
+
+                <h2 className="text-white font-extrabold text-2xl tracking-tight">
+
+                  DAGFA
+
+                </h2>
+
+                <p className="text-yellow-400 text-xs uppercase tracking-[2px]">
+
+                  Data Analytics Group
+
+                </p>
+                <p className="text-gray-400 text-sm">
+
+                for Asiwaju
+
+                </p>
+
+              </div>
+
+            </NavLink>
+
+            {/* ========================= */}
+            {/* DESKTOP NAV */}
+            {/* ========================= */}
+
+            <nav className="hidden lg:flex items-center gap-10">
+
+              {navItems.map((item) => (
+
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `relative uppercase text-sm tracking-widest font-medium transition-all duration-300 ${
+                      isActive
+                        ? "text-yellow-400"
+                        : "text-white hover:text-yellow-400"
+                    }`
+                  }
                 >
-                  {link.label}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gold rounded-full" />
+                  {({ isActive }) => (
+                    <>
+                      {item.label}
+
+                      {isActive && (
+                        <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-yellow-500 rounded-full" />
+                      )}
+                    </>
                   )}
-                </a>
-              );
-            })}
+                </NavLink>
+
+              ))}
+
+            </nav>
+
+            {/* ========================= */}
+            {/* CTA */}
+            {/* ========================= */}
+
+            <div className="hidden lg:flex items-center gap-4">
+
+              <NavLink
+                to="/contact"
+                className="bg-yellow-500 hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full transition duration-300"
+              >
+                Contact Us
+              </NavLink>
+
+            </div>
+
+            {/* ========================= */}
+            {/* MOBILE BUTTON */}
+            {/* ========================= */}
+
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden text-white"
+            >
+              {mobileOpen ? (
+                <X size={30} />
+              ) : (
+                <Menu size={30} />
+              )}
+            </button>
+
+          </div>
+        </div>
+      </header>
+            {/* ============================= */}
+      {/* MOBILE MENU */}
+      {/* ============================= */}
+
+      <div
+        className={`fixed top-0 right-0 h-screen w-[340px] bg-[#080808] border-l border-yellow-500/20 shadow-2xl z-[60] transform transition-transform duration-500 lg:hidden ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+
+        <div className="flex items-center justify-between px-6 h-20 border-b border-white/10">
+
+          <div className="flex items-center gap-3">
+
+            <img
+              src="/assets/dagfa-/logo.png"
+              alt="DAGFA"
+              className="w-14 h-14 object-contain"
+            />
+
+            <div>
+
+              <h3 className="font-bold text-xl text-white">
+
+                DAGFA
+
+              </h3>
+
+              <p className="text-[10px] uppercase tracking-[3px] text-yellow-400">
+
+                Data Analytics Group
+
+              </p>
+              <p className="text-gray-300 text-sm">
+
+                for Asiwaju
+
+                </p>
+            </div>
+
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 ${textColor}`}
-            aria-label="Toggle menu"
+            onClick={() => setMobileOpen(false)}
+            className="text-white hover:text-yellow-400 transition"
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            <X size={28} />
           </button>
-        </div>
-      </nav>
 
-      {/* Mobile Overlay */}
-      <div
-        className={`fixed inset-0 z-[99] bg-charcoal transition-transform duration-400 lg:hidden ${
-          mobileOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-6">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href.slice(1);
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-                className={`font-inter font-semibold text-2xl tracking-[0.04em] transition-colors duration-300 ${
-                  isActive ? 'text-gold' : 'text-white/70 hover:text-gold'
-                }`}
-              >
-                {link.label}
-              </a>
-            );
-          })}
         </div>
+
+        <div className="flex flex-col py-8">
+
+          {navItems.map((item) => (
+
+            <NavLink
+              key={item.path}
+              to={item.path}
+              onClick={() => setMobileOpen(false)}
+              className={({ isActive }) =>
+                `px-8 py-5 text-lg font-medium border-b border-white/5 transition-all duration-300 ${
+                  isActive
+                    ? "text-yellow-400 bg-yellow-500/10 rounded-full px-4 py-2"
+                    : "text-white hover:text-yellow-400 hover:bg-white/5"
+                }`
+              }
+            >
+
+              {item.label}
+
+            </NavLink>
+
+          ))}
+
+          <div className="px-8 mt-10">
+
+            <NavLink
+              to="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="bg-yellow-500 hover:bg-yellow-400 text-black font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+            Partner With DAGFA
+            </NavLink>
+
+          </div>
+
+        </div>
+
       </div>
-    </>
+
+      {/* ============================= */}
+      {/* BACKDROP */}
+      {/* ============================= */}
+
+      {mobileOpen && (
+
+        <div
+          onClick={() => setMobileOpen(false)}
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden"
+        />
+
+      )}
+
+</>
   );
 }

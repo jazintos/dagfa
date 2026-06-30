@@ -59,7 +59,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        play: ['Play', 'sans-serif'],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",

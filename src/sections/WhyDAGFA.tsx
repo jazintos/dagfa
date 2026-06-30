@@ -66,7 +66,7 @@ export default function WhyDAGFA() {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href="#analytics"
+            href="https://www.dagfa.org/analytics"
             onClick={(e) => { e.preventDefault(); document.getElementById('analytics')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="inline-flex items-center px-8 py-3.5 bg-gold text-charcoal font-inter font-semibold text-sm rounded-md hover:bg-gold-light transition-colors duration-300"
           >

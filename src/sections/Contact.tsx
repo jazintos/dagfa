@@ -254,44 +254,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="mt-20 pt-10 border-t border-white/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-center gap-3">
-              <img src="/assets/dagfa-logo.jpg" alt="DAGFA" className="h-9 w-9 rounded-full object-cover" />
-              <div>
-                <span className="font-inter font-semibold text-white text-sm">DAGFA</span>
-                <p className="font-inter text-[11px] text-white/50">Data Analytics Group for Asiwaju</p>
-              </div>
-            </div>
 
-            <div className="flex flex-wrap gap-6 justify-center">
-              {['Home', 'About', 'Leadership', 'Analytics', 'Initiatives', 'Insights'].map(link => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById(link.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="font-inter text-xs text-white/50 hover:text-white transition-colors duration-300"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-
-            <p className="font-inter text-[11px] text-white/40 italic text-center md:text-right">
-              Turning Data Into Direction.<br />Enthusiasm Into Impact.
-            </p>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-white/5 text-center">
-            <p className="font-inter text-[11px] text-white/30">
-              &copy; {new Date().getFullYear()} DAGFA. All rights reserved.
-            </p>
-          </div>
-        </footer>
       </div>
     </section>
   );
