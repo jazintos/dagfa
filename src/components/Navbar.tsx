@@ -83,23 +83,22 @@ export default function Navbar() {
               <img
                 src="/assets/dagfa-logo.png"
                 alt="DAGFA"
-                className="h-16 w-17 rounded-full object-contain"
+                className="h-16 w-[68px] rounded-full object-contain"
               />
 
-              <div className="hidden md:block leading-tight">
-
-                <h2 className="text-white font-extrabold text-2xl tracking-tight">
+              <div className="leading-tight">
+                <h2 className="text-white font-extrabold text-lg sm:text-xl md:text-2xl tracking-tight">
 
                   DAGFA
 
                 </h2>
 
-                <p className="text-yellow-400 font-extrabold text-xs uppercase tracking-[2px]">
+                <p className="text-yellow-400 font-extrabold text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[1.5px] sm:tracking-[2px]">
 
                   Data Analytics Group
 
                 </p>
-                <p className="text-gray-400 font-extrabold text-sm uppercase tracking-[2px]">
+                <p className="text-gray-200 font-extrabold text-[9px] sm:text-[10px] md:text-sm uppercase tracking-[1.5px] sm:tracking-[2px]">
 
                 for Asiwaju
 
@@ -193,7 +192,7 @@ export default function Navbar() {
             <img
               src="/assets/dagfa-/logo.png"
               alt="DAGFA"
-              className="w-14 h-14 object-contain"
+              className="h-16 w-[68px] object-contain"
             />
 
             <div>
