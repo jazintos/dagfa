@@ -13,15 +13,15 @@ export default function HeroContent() {
   </p> */}
 
       <h1 className="font-play font-bold text-white leading-[0.95] tracking-tight">
-        <span className="block text-6xl lg:text-8xl">
+        <span className="block text-4xl lg:text-6xl">
           TURNING DATA
         </span>
 
-        <span className="block text-6xl lg:text-8xl">
+        <span className="block text-4xl lg:text-6xl">
           INTO
         </span>
 
-        <span className="block text-6xl lg:text-8xl text-yellow-500">
+        <span className="block text-4xl lg:text-6xl text-yellow-500">
           DIRECTION.
         </span>
       </h1>

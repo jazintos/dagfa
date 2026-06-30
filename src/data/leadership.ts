@@ -34,7 +34,7 @@ export const leaders: Leader[] = [
   },
   {
     id: 4,
-    name: "Ms Bolajoko Davies",
+    name: "Ms Bolajoko Eko-Davies",
     role: "SECRETARY",
     description: "Entrepreneur and Secretary for DAGFA. Manages organizational operations, coordination, and internal communications across all units.",
     image: "/assets/leader-bolajoko-davies.jpg",

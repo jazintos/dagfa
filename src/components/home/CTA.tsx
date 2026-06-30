@@ -26,7 +26,7 @@ export default function CTA() {
 
           </span>
 
-          <h2 className="mt-6 text-white text-5xl lg:text-7xl font-black leading-tight">
+          <h2 className="mt-6 text-white text-3xl lg:text-5xl font-black leading-tight">
 
             Helping Nigeria
 

@@ -63,7 +63,7 @@ export default function FocusAreas() {
 
           </span>
 
-          <h2 className="mt-5 text-5xl lg:text-6xl font-black leading-tight text-[#111]">
+          <h2 className="mt-5 text-3xl lg:text-4xl font-black leading-tight text-[#111]">
 
             Delivering Strategic
             Intelligence Across

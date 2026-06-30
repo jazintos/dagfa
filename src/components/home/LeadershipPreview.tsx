@@ -65,7 +65,7 @@ export default function LeadershipPreview() {
 
             </span>
 
-            <h2 className="mt-5 text-5xl lg:text-6xl font-black text-white leading-tight">
+            <h2 className="mt-5 text-3xl lg:text-4xl font-black text-white leading-tight">
 
               Leadership
               <br />

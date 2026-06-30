@@ -37,13 +37,13 @@ export default function Spectra() {
 
           </span>
 
-          <h2 className="mt-6 text-white font-black text-5xl lg:text-7xl leading-tight">
+          <h2 className="mt-6 text-white font-black text-3xl lg:text-5xl leading-tight">
 
             SPECTRA™
 
           </h2>
 
-          <h3 className="mt-4 text-yellow-400 text-2xl lg:text-3xl font-semibold">
+          <h3 className="mt-4 text-yellow-400 text-2xl lg:text-2xl font-semibold">
 
             Political Intelligence Platform
 

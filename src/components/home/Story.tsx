@@ -28,7 +28,7 @@ export default function Story() {
 
             </span>
 
-            <h2 className="mt-6 text-5xl lg:text-6xl font-black leading-tight text-[#111]">
+            <h2 className="mt-6 text-4xl lg:text-5xl font-black leading-tight text-[#111]">
 
               Intelligence.
 
